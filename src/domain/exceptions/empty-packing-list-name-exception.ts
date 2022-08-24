@@ -1,4 +1,4 @@
-import { PackItException } from '@/shared/exceptions/mod.js'
+import { PackItException } from '@/shared/exceptions/index.js'
 
 export class EmptyPackingListNameException extends PackItException {
   name = 'EmptyPackingListNameException'

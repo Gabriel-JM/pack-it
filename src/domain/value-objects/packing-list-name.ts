@@ -1,4 +1,4 @@
-import { EmptyPackingListNameException } from '@/domain/exceptions/mod.js'
+import { EmptyPackingListNameException } from '@/domain/exceptions/index.js'
 
 export class PackingListName {
   #value: string

@@ -2,7 +2,6 @@
   "compilerOptions": {
     "target": "ES2022",
     "module": "NodeNext",
-    "moduleResolution": "classic",
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"]
