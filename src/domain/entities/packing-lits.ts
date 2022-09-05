@@ -1,8 +1,14 @@
-import { PackingItemAlreadyExistsException } from '@/domain/exceptions/packing-item-already-exists-exception.js'
-import { Localization, PackingItem, PackingListName } from '@/domain/value-objects/index.js'
+import { PackingItemAlreadyExistsException } from '@/domain/exceptions/index.js'
+import {
+  Localization,
+  PackingItem,
+  PackingListId,
+  PackingListName
+} from '@/domain/value-objects/index.js'
+import { AggregateRoot } from '@/shared/domain/aggregate-root.js'
 
-export class PackingList {
-  #id: string
+export class PackingList extends AggregateRoot<PackingListId> {
+  #id: PackingListId
   #name: PackingListName
   #localization: Localization
   #items: Array<PackingItem>
@@ -13,7 +19,9 @@ export class PackingList {
     localization: Localization,
     items: PackingItem[]
   ) {
-    this.#id = id
+    const packingListId = new PackingListId(id)
+    super(packingListId, 1)
+    this.#id = packingListId
     this.#name = name
     this.#localization = localization
     this.#items = items
